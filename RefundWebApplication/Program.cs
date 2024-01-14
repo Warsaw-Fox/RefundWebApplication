@@ -1,5 +1,12 @@
-var builder = WebApplication.CreateBuilder(args);
+using RefundWebApplication.Data;
+//using RefundWebApplication.Repositories;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MainDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("RefundWebApplicationConnectionString")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
