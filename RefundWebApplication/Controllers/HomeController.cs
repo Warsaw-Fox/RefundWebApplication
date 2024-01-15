@@ -18,7 +18,7 @@ namespace RefundWebApplication.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Complaint()
         {
             return View();
         }

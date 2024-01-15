@@ -1,0 +1,82 @@
+﻿@model RefundWebApplication.Models.Domain.ComplaintModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<h2>Complaint Form</h2>
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>Add New Complaint</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <form asp-controller="Complaint" asp-action="SubmitComplaint" method="post">
+
+        <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" id="FirstName" asp-for="FirstName" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="LastName" asp-for="LastName" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Street</label>
+            <input type="text" class="form-control" id="Street" asp-for="Street" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">House Number</label>
+            <input type="text" class="form-control" id="HouseNumber" asp-for="HouseNumber" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Postal Code</label>
+            <input type="text" class="form-control" id="PostalCode" asp-for="PostalCode" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">City</label>
+            <input type="text" class="form-control" id="City" asp-for="City" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" id="Phone" asp-for="Phone" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" asp-for="Email" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Serial Number</label>
+            <input type="text" class="form-control" id="SerialNumber" asp-for="SerialNumber" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Purchase Date</label>
+            <input type="date" class="form-control" id="PurchaseDate" asp-for="PurchaseDate" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Issue Description</label>
+            <textarea class="form-control" id="IssueDescription" asp-for="IssueDescription" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Attachments</label>
+            <input type="file" class="form-control" id="Attachments" />
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-dark">
+                Submit Complaint
+            </button>
+        </div>
+
+    </form>
+</div>

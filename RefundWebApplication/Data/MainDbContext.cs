@@ -10,7 +10,7 @@ namespace RefundWebApplication.Data
         public MainDbContext(DbContextOptions<MainDbContext> options) : base(options)
         {
         }
-
+        public DbSet<ComplaintModel> Complaints { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CustomerModel>().HasData(
