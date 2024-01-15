@@ -5,7 +5,7 @@ namespace RefundWebApplication.Data
 {
     public class MainDbContext : DbContext
     {
-        private const string V = """F117825F - F03C - 413F - A51A - EFCC90F0AF4F""";
+        private const string V = "F117825F-F03C-413F-A51A-EFCC90F0AF4F";
 
         public MainDbContext(DbContextOptions<MainDbContext> options) : base(options)
         {
