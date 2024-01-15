@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RefundWebApplication.Migrations
 {
     /// <inheritdoc />
-    public partial class Intializone : Migration
+    public partial class Intializone1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

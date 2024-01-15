@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RefundWebApplication.Data;
 
@@ -11,9 +12,11 @@ using RefundWebApplication.Data;
 namespace RefundWebApplication.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240115000148_Intializone5")]
+    partial class Intializone5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,40 +24,6 @@ namespace RefundWebApplication.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("RefundWebApplication.Models.Domain.AttachmentModel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ComplaintId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ComplaintModelId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FilePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FileType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UploadDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ComplaintModelId");
-
-                    b.ToTable("Attachments");
-                });
 
             modelBuilder.Entity("RefundWebApplication.Models.Domain.ComplaintHistoryModel", b =>
                 {
@@ -256,13 +225,6 @@ namespace RefundWebApplication.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("RefundWebApplication.Models.Domain.AttachmentModel", b =>
-                {
-                    b.HasOne("RefundWebApplication.Models.Domain.ComplaintModel", null)
-                        .WithMany("Attachments")
-                        .HasForeignKey("ComplaintModelId");
-                });
-
             modelBuilder.Entity("RefundWebApplication.Models.Domain.ComplaintHistoryModel", b =>
                 {
                     b.HasOne("RefundWebApplication.Models.Domain.ComplaintModel", null)
@@ -293,8 +255,6 @@ namespace RefundWebApplication.Migrations
 
             modelBuilder.Entity("RefundWebApplication.Models.Domain.ComplaintModel", b =>
                 {
-                    b.Navigation("Attachments");
-
                     b.Navigation("Customer");
 
                     b.Navigation("EmailLogs");

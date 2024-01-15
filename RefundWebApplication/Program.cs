@@ -7,6 +7,9 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MainDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("RefundWebApplicationConnectionString")));
+builder.Services.AddDbContext<AuthDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("RefundWebApplicationAuthDbConnectionString")));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

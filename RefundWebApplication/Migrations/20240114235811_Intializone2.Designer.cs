@@ -12,8 +12,8 @@ using RefundWebApplication.Data;
 namespace RefundWebApplication.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20240114214135_Intializone")]
-    partial class Intializone
+    [Migration("20240114235811_Intializone2")]
+    partial class Intializone2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,6 +77,66 @@ namespace RefundWebApplication.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Complaints");
+                });
+
+            modelBuilder.Entity("RefundWebApplication.Models.Domain.CustomerModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ComplaintModelId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HouseNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ComplaintModelId");
+
+                    b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("RefundWebApplication.Models.Domain.CustomerModel", b =>
+                {
+                    b.HasOne("RefundWebApplication.Models.Domain.ComplaintModel", null)
+                        .WithMany("Customer")
+                        .HasForeignKey("ComplaintModelId");
+                });
+
+            modelBuilder.Entity("RefundWebApplication.Models.Domain.ComplaintModel", b =>
+                {
+                    b.Navigation("Customer");
                 });
 #pragma warning restore 612, 618
         }
