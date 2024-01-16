@@ -16,20 +16,20 @@ namespace RefundWebApplication.Data
             base.OnModelCreating(builder);
 
 
-            // Seed Roles (Serwisant, Majster, SuperAdmin)
+            // Seed Roles (User, Admin, SuperAdmin)
 
-            var MajsterRoleId = "37cc67e1-41ca-461c-bf34-2b5e62dbae32";
+            var adminRoleId = "37cc67e1-41ca-461c-bf34-2b5e62dbae32";
             var superAdminRoleId = "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0";
-            var SerwisantRoleId = "a0cab2c3-6558-4a1c-be81-dfb39180da3d";
+            var userRoleId = "a0cab2c3-6558-4a1c-be81-dfb39180da3d";
 
             var roles = new List<IdentityRole>
             {
                 new IdentityRole
                 {
-                    Name= "Majster",
-                    NormalizedName = "Majster",
-                    Id = MajsterRoleId,
-                    ConcurrencyStamp = MajsterRoleId
+                    Name= "Admin",
+                    NormalizedName = "Admin",
+                    Id = adminRoleId,
+                    ConcurrencyStamp = adminRoleId
                 },
                 new IdentityRole
                 {
@@ -40,10 +40,10 @@ namespace RefundWebApplication.Data
                 },
                 new IdentityRole
                 {
-                    Name = "Serwisant",
-                    NormalizedName = "Serwisant",
-                    Id = SerwisantRoleId,
-                    ConcurrencyStamp = SerwisantRoleId
+                    Name = "User",
+                    NormalizedName = "User",
+                    Id = userRoleId,
+                    ConcurrencyStamp = userRoleId
                 }
             };
 
@@ -53,10 +53,10 @@ namespace RefundWebApplication.Data
             var superAdminId = "472ba632-6133-44a1-b158-6c10bd7d850d";
             var superAdminUser = new IdentityUser
             {
-                UserName = "superadmin@bloggie.com",
-                Email = "superadmin@bloggie.com",
-                NormalizedEmail = "superadmin@bloggie.com".ToUpper(),
-                NormalizedUserName = "superadmin@bloggie.com".ToUpper(),
+                UserName = "superadmin@dupex.com",
+                Email = "superadmin@dupex.com",
+                NormalizedEmail = "superadmin@dupex.com".ToUpper(),
+                NormalizedUserName = "superadmin@dupex.com".ToUpper(),
                 Id = superAdminId
             };
 
@@ -72,7 +72,7 @@ namespace RefundWebApplication.Data
             {
                 new IdentityUserRole<string>
                 {
-                    RoleId = MajsterRoleId,
+                    RoleId = adminRoleId,
                     UserId = superAdminId
                 },
                 new IdentityUserRole<string>
@@ -82,7 +82,7 @@ namespace RefundWebApplication.Data
                 },
                 new IdentityUserRole<string>
                 {
-                    RoleId = SerwisantRoleId,
+                    RoleId = userRoleId,
                     UserId = superAdminId
                 }
             };
