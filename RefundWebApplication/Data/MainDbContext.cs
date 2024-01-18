@@ -13,7 +13,7 @@ namespace RefundWebApplication.Data
         public DbSet<ComplaintModel> Complaints { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CustomerModel>().HasData(
+           /* modelBuilder.Entity<CustomerModel>().HasData(
                 new CustomerModel
                 {
                     Id = Guid.NewGuid(), // Assign a unique Guid as the Id
@@ -25,9 +25,9 @@ namespace RefundWebApplication.Data
                     City = "Example City",
                     Phone = "555-555-5555",
                     Email = "john.doe@example.com"
-                });
+                }); */
 
-            modelBuilder.Entity<ProductModel>().HasData(
+            /* modelBuilder.Entity<ProductModel>().HasData(
                 new ProductModel
                 {
                     Id = Guid.NewGuid(), // Assign a unique Guid as the Id
@@ -35,7 +35,7 @@ namespace RefundWebApplication.Data
                     SerialNumber = "1234567890",
                     PurchaseDate = DateTime.Now.AddMonths(-3),
                     WarrantyEndDate = DateTime.Parse("2023-01-15")
-                });
+                }); */
             modelBuilder.Entity<ComplaintModel>().HasData(
             new ComplaintModel
             {
@@ -52,7 +52,7 @@ namespace RefundWebApplication.Data
                 PurchaseDate = DateTime.Now.AddMonths(-3), // Adjust purchase date as needed
                 IssueDescription = "Product issue description goes here"
             });
-            modelBuilder.Entity<ComplaintHistoryModel>().HasData(
+           /* modelBuilder.Entity<ComplaintHistoryModel>().HasData(
                 new ComplaintHistoryModel
                 {
                     Id = Guid.NewGuid(), // Generate a unique ID
@@ -61,9 +61,9 @@ namespace RefundWebApplication.Data
                     Action = "Change status", // Provide the action description
                     Status = "Resolved", // Provide the status
                     Details = "Complaint has been resolved." // Provide details
-                }); ;
+                }); ; */
 
-            modelBuilder.Entity<AttachmentModel>().HasData(
+            /* modelBuilder.Entity<AttachmentModel>().HasData(
         new AttachmentModel
         {
             Id = Guid.NewGuid(), // Generate a unique ID
@@ -72,9 +72,9 @@ namespace RefundWebApplication.Data
             FilePath = "/uploads/example.jpg", // Provide the file path
             FileType = "image", // Provide the file type
             UploadDate = DateTime.Now.AddMonths(-1) // Adjust upload date as needed
-        });
+        }); */
 
-            modelBuilder.Entity<EmailLogsModel>().HasData(
+           /* modelBuilder.Entity<EmailLogsModel>().HasData(
                 new EmailLogsModel
                 {
                     Id = Guid.NewGuid(), // Generate a unique ID
@@ -83,7 +83,7 @@ namespace RefundWebApplication.Data
                     RecipientEmail = "recipient@example.com", // Provide the recipient's email address
                     EmailSubject = "Sample Email", // Provide the email subject
                     EmailBody = "This is a sample email body." // Provide the email body
-                });
+                }); */
 
 
 
