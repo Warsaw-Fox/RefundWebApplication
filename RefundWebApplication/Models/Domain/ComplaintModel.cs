@@ -17,12 +17,7 @@ namespace RefundWebApplication.Models.Domain
         public string SerialNumber { get; set; }
         public DateTime PurchaseDate { get; set; }
         public string IssueDescription { get; set; }
-        // Define a collection of attachments related to this complaint
-        public ICollection<AttachmentModel> Attachments { get; set; }
-        public ICollection<ComplaintHistoryModel> History { get; set; }
-        public ICollection<CustomerModel> Customer { get; set; }
-        public ICollection<EmailLogsModel> EmailLogs { get; set; }
-        public ICollection<ProductModel> Products { get; set; }
+     
 
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RefundWebApplication.Migrations
 {
     /// <inheritdoc />
-    public partial class Intializone1 : Migration
+    public partial class InitFg : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +32,11 @@ namespace RefundWebApplication.Migrations
                 {
                     table.PrimaryKey("PK_Complaints", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Complaints",
+                columns: new[] { "Id", "City", "Email", "FirstName", "HouseNumber", "IssueDescription", "LastName", "Phone", "PostalCode", "PurchaseDate", "SerialNumber", "Street" },
+                values: new object[] { new Guid("6ab35a2f-556f-4659-aeb1-fcd055b44c18"), "Sample Town", "jane.smith@example.com", "Jane", "Suite 101", "Product issue description goes here", "Smith", "555-987-6543", "54321", new DateTime(2023, 10, 19, 19, 18, 28, 536, DateTimeKind.Local).AddTicks(7662), "0987654321", "456 Oak St" });
         }
 
         /// <inheritdoc />

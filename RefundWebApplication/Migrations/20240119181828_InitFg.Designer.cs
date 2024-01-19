@@ -12,8 +12,8 @@ using RefundWebApplication.Data;
 namespace RefundWebApplication.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20240115175125_Seed1")]
-    partial class Seed1
+    [Migration("20240119181828_InitFg")]
+    partial class InitFg
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace RefundWebApplication.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("RefundWebApplication.Models.Domain.CustomerModel", b =>
+            modelBuilder.Entity("RefundWebApplication.Models.Domain.ComplaintModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,6 +47,10 @@ namespace RefundWebApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("IssueDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -59,39 +63,6 @@ namespace RefundWebApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CustomerModel");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("329ec81f-bcb4-42f2-8bec-3ecf91979001"),
-                            City = "Example City",
-                            Email = "john.doe@example.com",
-                            FirstName = "John",
-                            HouseNumber = "Apt 4B",
-                            LastName = "Doe",
-                            Phone = "555-555-5555",
-                            PostalCode = "12345",
-                            Street = "123 Main Street"
-                        });
-                });
-
-            modelBuilder.Entity("RefundWebApplication.Models.Domain.ProductModel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("PurchaseDate")
                         .HasColumnType("datetime2");
 
@@ -99,21 +70,29 @@ namespace RefundWebApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("WarrantyEndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProductModel");
+                    b.ToTable("Complaints");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("437675f9-d001-47d4-9f49-ca0e7c4ffb2e"),
-                            Name = "Example Product",
-                            PurchaseDate = new DateTime(2022, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SerialNumber = "1234567890",
-                            WarrantyEndDate = new DateTime(2023, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Id = new Guid("6ab35a2f-556f-4659-aeb1-fcd055b44c18"),
+                            City = "Sample Town",
+                            Email = "jane.smith@example.com",
+                            FirstName = "Jane",
+                            HouseNumber = "Suite 101",
+                            IssueDescription = "Product issue description goes here",
+                            LastName = "Smith",
+                            Phone = "555-987-6543",
+                            PostalCode = "54321",
+                            PurchaseDate = new DateTime(2023, 10, 19, 19, 18, 28, 536, DateTimeKind.Local).AddTicks(7662),
+                            SerialNumber = "0987654321",
+                            Street = "456 Oak St"
                         });
                 });
 #pragma warning restore 612, 618
