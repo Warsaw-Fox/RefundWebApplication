@@ -26,7 +26,7 @@ namespace RefundWebApplication.Controllers
         {
             return View();
         }
-        public IActionResult PanelSterowania()
+        public IActionResult ThankYou()
         {
             return View();
         }
