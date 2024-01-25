@@ -28,6 +28,50 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Complaint">Complaint</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Kontakt</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Panel Obsługi
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-area=""
+                                       asp-controller="AdminTags"
+                                       asp-action="List">
+                                        Nowe zgłoszenia
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-area=""
+                                       asp-controller="AdminTags"
+                                       asp-action="List">
+                                        Moje zgłoszenia
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-area=""
+                                       asp-controller="AdminBlogPosts"
+                                       asp-action="List">
+                                        Zgłoszenia otwarte
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-area=""
+                                       asp-controller="AdminBlogPosts"
+                                       asp-action="List">
+                                        Zgłoszenia zamknięte
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
