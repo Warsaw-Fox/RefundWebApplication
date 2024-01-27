@@ -99,14 +99,14 @@
         margin-top: 95px;
     }
 
-    .form {
+    .formstyle {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 20px;
     }
 
-        .form input {
+        .formstyle input {
             margin-bottom: 10px;
             padding: 5px;
             width: 200px;
@@ -114,7 +114,7 @@
             font-size: 15px;
         }
 
-        .form button {
+        .formstyle button {
             padding: 5px;
             background-color: #f73600;
             font-size: 18px;
@@ -124,7 +124,7 @@
             cursor: pointer;
         }
 
-            .form button:hover {
+            .formstyle button:hover {
                 background-color: #45a049;
             }
   </style>
@@ -150,7 +150,7 @@
       <div class="txt">
         Sprawdź status
       </div>
-      <div class="form">
+      <div class="formstyle">
         <input type="text" id="pole-tekstowe-status" name="pole-tekstowe-status" placeholder="Wpisz numer reklamacji">
         <button onclick="sprawdzStatus()">Sprawdź</button>
       </div>
@@ -162,13 +162,22 @@
           <path d="M304 192v32c0 6.6-5.4 12-12 12H124c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm201 284.7L476.7 505c-9.4 9.4-24.6 9.4-33.9 0L343 405.3c-4.5-4.5-7-10.6-7-17V372c-35.3 27.6-79.7 44-128 44C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 48.3-16.4 92.7-44 128h16.3c6.4 0 12.5 2.5 17 7l99.7 99.7c9.3 9.4 9.3 24.6 0 34zM344 208c0-75.2-60.8-136-136-136S72 132.8 72 208s60.8 136 136 136 136-60.8 136-136z" />
         </svg>
       </div>
-      <div class="txt">
-        Sprawdź gwarancję
-      </div>
-      <div class="form">
-        <input type="text" id="pole-tekstowe-gwarancja" name="pole-tekstowe-gwarancja" placeholder="Wpisz numer seryjny">
-        <button onclick="sprawdzGwarancje()">Sprawdź</button>
-      </div>
+        <div class="txt" onclick="sprawdzGwarancje()">
+            Sprawdź gwarancję
+        </div>
+        <div class="formstyle">
+            <form asp-controller="Warranty" asp-action="CheckWarranty" method="post">
+                @if (ViewData["ShowSerialNumberInput"] as bool? ?? true)
+                {
+                    <input type="text" name="serialNumber" required placeholder="Wpisz numer seryjny" />
+                    <button type="submit">Sprawdź gwarancję</button>
+                }
+                else
+                {
+                    <p>@ViewData["WarrantyStatusMessage"]</p>
+                }
+            </form>
+        </div>
     </div>
   </div>
 
@@ -200,8 +209,9 @@
     }
 
     function sprawdzGwarancje() {
-      // Tutaj możesz dodać kod, który obsłuży sprawdzanie gwarancji
-      var numerSeryjny = document.getElementById("pole-tekstowe-gwarancja").value;
-      alert("Sprawdzanie gwarancji dla numeru seryjnego: " + numerSeryjny);
+        // Pobierz numer seryjny z pola tekstowego
+        var numerSeryjny = document.getElementById("pole-tekstowe-gwarancja").value;
+        alert("Sprawdzanie gwarancji dla numeru seryjnego: " + numerSeryjny);
     }
   </script>
+
