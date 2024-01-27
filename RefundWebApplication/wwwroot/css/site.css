@@ -1,22 +1,125 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    max-height: 100vh;
+    text-decoration: none;
 }
+
+.logo {
+    padding: 0 50px;
+    font-size: 24px;
+    color: #f73600;
+    font-weight: 600;
+}
+
+.logowanie {
+    cursor: pointer;
+    padding: 0 50px;
+    font-size: 14px;
+    color: #f73600;
+}
+
+.kafelki {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 100px 0 50px 0;
+    font-size: 23px;
+}
+
+.square1 {
+    position: relative;
+    width: 260px;
+    height: 320px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.square {
+    position: relative;
+    width: 260px;
+    height: 320px;
+    background-color: #ffffff;
+    margin: 0 0 0 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 15px;
+}
+
+    .square:hover {
+        border: 2px solid #f73600;
+    }
+
+.square1:hover {
+    border: 2px solid #f73600;
+}
+
+.txt {
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    padding-top: 60px;
+}
+
+.footer {
+    margin-top: 6%;
+    background-color: #e7e6e6;
+    height: 50px;
+    color: white;
+    border-bottom: 2px solid #f73600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 100%;
+}
+
+.ikonki {
+    margin-top: 95px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+    .form input {
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 200px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .form button {
+        padding: 5px;
+        background-color: #f73600;
+        font-size: 18px;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .form button:hover {
+            background-color: #45a049;
+        }
