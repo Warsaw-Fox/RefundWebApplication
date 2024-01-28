@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NuGet.Packaging.Signing;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace RefundWebApplication.Models.Domain
@@ -17,7 +18,6 @@ namespace RefundWebApplication.Models.Domain
         public string SerialNumber { get; set; }
         public DateTime PurchaseDate { get; set; }
         public string IssueDescription { get; set; }
-     
 
     }
 }

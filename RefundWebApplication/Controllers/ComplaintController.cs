@@ -47,5 +47,15 @@ namespace RefundWebApplication.Controllers
         {
             return View();
         }
+        public IActionResult ComplaintList()
+        {
+            var complaints = _dbContext.Complaints;
+            return View(complaints);
+        }
+        public IActionResult Edit()
+        {
+
+            return View();
+        }
     }
 }

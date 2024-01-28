@@ -32,7 +32,5 @@ namespace RefundWebApplication.Data
        
             base.OnModelCreating(modelBuilder);
         }
-
-
     }
 }
