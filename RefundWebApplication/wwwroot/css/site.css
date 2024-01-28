@@ -6,6 +6,15 @@ body {
     text-decoration: none;
 }
 
+.container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.przestrzen {
+    padding: 0 30% 0 30%;
+}
+
 .logo {
     padding: 0 50px;
     font-size: 24px;
@@ -89,7 +98,9 @@ body {
     align-items: center;
     color: black;
     width: 100%;
+    max-width: 100%;
 }
+
 
 .ikonki {
     margin-top: 95px;
