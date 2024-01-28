@@ -20,7 +20,6 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Repositories\" />
-    <Folder Include="Views\Home\NewFolder\" />
     <Folder Include="Views\Panel\" />
   </ItemGroup>
 
