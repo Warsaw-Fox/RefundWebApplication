@@ -66,6 +66,10 @@
             <label class="form-label">Attachments</label>
             <input type="file" class="form-control" id="Attachments" />
         </div>
+            <div class="mb-3" hidden>
+                <label class="form-label">Status</label>
+                <input type="hidden" class="form-control" id="Status" value="Nowy" asp-for="Status">
+            </div>
 
         <div class="mb-3">
             <button type="submit" class="btn btn-dark">

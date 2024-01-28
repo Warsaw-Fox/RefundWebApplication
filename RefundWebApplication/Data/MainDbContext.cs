@@ -27,7 +27,9 @@ namespace RefundWebApplication.Data
                 Email = "jane.smith@example.com",
                 SerialNumber = "0987654321",
                 PurchaseDate = DateTime.Now.AddMonths(-3), // Adjust purchase date as needed
-                IssueDescription = "Product issue description goes here"
+                IssueDescription = "Product issue description goes here",
+                IssueDate = DateTime.Now,
+                Status = "Nowy",
             });
        
             base.OnModelCreating(modelBuilder);
