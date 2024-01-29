@@ -44,6 +44,9 @@ namespace RefundWebApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("IssueDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("IssueDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -67,6 +70,10 @@ namespace RefundWebApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Street")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -78,17 +85,19 @@ namespace RefundWebApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6ab35a2f-556f-4659-aeb1-fcd055b44c18"),
+                            Id = new Guid("c45956f1-bf5f-44ee-a899-7b233782041a"),
                             City = "Sample Town",
                             Email = "jane.smith@example.com",
                             FirstName = "Jane",
                             HouseNumber = "Suite 101",
+                            IssueDate = new DateTime(2024, 1, 28, 18, 46, 53, 993, DateTimeKind.Local).AddTicks(4925),
                             IssueDescription = "Product issue description goes here",
                             LastName = "Smith",
                             Phone = "555-987-6543",
                             PostalCode = "54321",
-                            PurchaseDate = new DateTime(2023, 10, 19, 19, 18, 28, 536, DateTimeKind.Local).AddTicks(7662),
+                            PurchaseDate = new DateTime(2023, 10, 28, 18, 46, 53, 993, DateTimeKind.Local).AddTicks(4875),
                             SerialNumber = "0987654321",
+                            Status = "Nowy",
                             Street = "456 Oak St"
                         });
                 });

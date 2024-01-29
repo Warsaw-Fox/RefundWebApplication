@@ -2,13 +2,8 @@
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+<div class="przestrzen">
 <h2>Complaint Form</h2>
-<div class="bg-secondary bg-opacity-10 py-2">
-    <div class="container">
-        <h1>Add New Complaint</h1>
-    </div>
-</div>
-
 <div class="container py-5">
     <form asp-controller="Complaint" asp-action="SubmitComplaint" method="post">
 
@@ -71,12 +66,16 @@
             <label class="form-label">Attachments</label>
             <input type="file" class="form-control" id="Attachments" />
         </div>
+            <div class="mb-3" hidden>
+                <label class="form-label">Status</label>
+                <input type="hidden" class="form-control" id="Status" value="Nowy" asp-for="Status">
+            </div>
 
         <div class="mb-3">
             <button type="submit" class="btn btn-dark">
                 Submit Complaint
             </button>
         </div>
-
     </form>
+    </div>
 </div>

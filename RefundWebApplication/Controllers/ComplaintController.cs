@@ -28,6 +28,7 @@ namespace RefundWebApplication.Controllers
             {
                 // Generate a new unique ID for the complaint
                 complaint.Id = Guid.NewGuid();
+                complaint.IssueDate = DateTime.Now;
 
                 // You can add more processing here, such as saving attachments or sending emails.
 
