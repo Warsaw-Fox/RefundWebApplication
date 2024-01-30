@@ -6,6 +6,7 @@
 
 <h1>Details</h1>
 
+@* Wyświetlanie Details*@
 <div>
     <h4>ComplaintModel</h4>
     <hr />
@@ -78,7 +79,33 @@
         </dd>
     </dl>
 </div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="ComplaintList">Back to List</a>
 </div>
+
+@* Wyświetlnie aktualnego statusu reklamacji na zwyklym ifie*@
+@if (!string.IsNullOrEmpty(Model.Status))
+{
+    <div class="status-box">
+        <h4>Status History</h4>
+        <ul>
+            @if (Model.Status == "Nowy")
+            {
+                <li>Przyjęte</li>
+            }
+            @if (Model.Status == "W Trakcie")
+            {
+                <li>Przyjęte</li>
+                <li>W Trakcie</li>
+            }
+            @if (Model.Status == "Zakończone")
+            {
+                <li>Przyjęte</li>
+                <li>W Trakcie</li>
+                <li>Zakończone</li>
+            }
+        </ul>
+    </div>
+}
