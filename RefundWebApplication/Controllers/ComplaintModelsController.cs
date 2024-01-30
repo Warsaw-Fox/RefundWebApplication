@@ -107,7 +107,7 @@ namespace TestApp2.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(ComplaintList));
+                return RedirectToAction(nameof(Index));
             }
             return View(complaintModel);
         }
