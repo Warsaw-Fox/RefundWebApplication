@@ -39,29 +39,6 @@ namespace RefundWebApplication.Controllers
             return View(complaintModel);
         }
 
-        // GET: ComplaintModels/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ComplaintModels/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Street,HouseNumber,PostalCode,City,Phone,Email,SerialNumber,PurchaseDate,IssueDescription")] ComplaintModel complaintModel)
-        {
-            if (ModelState.IsValid)
-            {
-                complaintModel.Id = Guid.NewGuid();
-                _context.Add(complaintModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ComplaintList));
-            }
-            return View(complaintModel);
-        }
-
         // GET: ComplaintModels/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
@@ -108,7 +85,7 @@ namespace RefundWebApplication.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ComplaintList));
             }
             return View(complaintModel);
         }
