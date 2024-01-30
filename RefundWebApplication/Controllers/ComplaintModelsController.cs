@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using RefundWebApplication.Data;
 using RefundWebApplication.Models.Domain;
 
-namespace TestApp2.Controllers
+namespace RefundWebApplication.Controllers
 {
     public class ComplaintModelsController : Controller
     {
@@ -17,7 +17,8 @@ namespace TestApp2.Controllers
         // GET: ComplaintModels
         public async Task<IActionResult> ComplaintList()
         {
-            return View(await _context.Complaints.ToListAsync());
+            var complaints = await _context.Complaints.OrderByDescending(c => c.IssueDate).ToListAsync();
+            return View(complaints);
         }
 
         // GET: ComplaintModels/Details/5
@@ -82,7 +83,7 @@ namespace TestApp2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,FirstName,LastName,Street,HouseNumber,PostalCode,City,Phone,Email,SerialNumber,PurchaseDate,IssueDescription")] ComplaintModel complaintModel)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,FirstName,LastName,Street,HouseNumber,PostalCode,City,Phone,Email,SerialNumber,PurchaseDate,IssueDescription,IssueDate,Status")] ComplaintModel complaintModel)
         {
             if (id != complaintModel.Id)
             {

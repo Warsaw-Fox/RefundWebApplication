@@ -38,7 +38,7 @@ namespace RefundWebApplication.Migrations
             migrationBuilder.InsertData(
                 table: "Complaints",
                 columns: new[] { "Id", "City", "Email", "FirstName", "HouseNumber", "IssueDate", "IssueDescription", "LastName", "Phone", "PostalCode", "PurchaseDate", "SerialNumber", "Status", "Street" },
-                values: new object[] { new Guid("c45956f1-bf5f-44ee-a899-7b233782041a"), "Sample Town", "jane.smith@example.com", "Jane", "Suite 101", new DateTime(2024, 1, 28, 18, 46, 53, 993, DateTimeKind.Local).AddTicks(4925), "Product issue description goes here", "Smith", "555-987-6543", "54321", new DateTime(2023, 10, 28, 18, 46, 53, 993, DateTimeKind.Local).AddTicks(4875), "0987654321", "Nowy", "456 Oak St" });
+                values: new object[] { new Guid("15f60a77-e1ce-4d16-9227-1d831ceb8402"), "Sample Town", "jane.smith@example.com", "Jane", "Suite 101", new DateTime(2024, 1, 29, 20, 43, 10, 78, DateTimeKind.Local).AddTicks(3248), "Product issue description goes here", "Smith", "555-987-6543", "54321", new DateTime(2023, 10, 29, 20, 43, 10, 78, DateTimeKind.Local).AddTicks(3189), "0987654321", "Nowy", "456 Oak St" });
         }
 
         /// <inheritdoc />

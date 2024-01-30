@@ -69,6 +69,19 @@
                 <span asp-validation-for="IssueDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="IssueDate" class="control-label"></label>
+                <input asp-for="IssueDate" class="form-control" />
+                <span asp-validation-for="IssueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Status:</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Przyjęte">Przyjęte</option>
+                    <option value="W Trakcie">W Trakcie</option>
+                    <option value="Zakończone">Zakończone</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

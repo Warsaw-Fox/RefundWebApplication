@@ -85,17 +85,17 @@ namespace RefundWebApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c45956f1-bf5f-44ee-a899-7b233782041a"),
+                            Id = new Guid("15f60a77-e1ce-4d16-9227-1d831ceb8402"),
                             City = "Sample Town",
                             Email = "jane.smith@example.com",
                             FirstName = "Jane",
                             HouseNumber = "Suite 101",
-                            IssueDate = new DateTime(2024, 1, 28, 18, 46, 53, 993, DateTimeKind.Local).AddTicks(4925),
+                            IssueDate = new DateTime(2024, 1, 29, 20, 43, 10, 78, DateTimeKind.Local).AddTicks(3248),
                             IssueDescription = "Product issue description goes here",
                             LastName = "Smith",
                             Phone = "555-987-6543",
                             PostalCode = "54321",
-                            PurchaseDate = new DateTime(2023, 10, 28, 18, 46, 53, 993, DateTimeKind.Local).AddTicks(4875),
+                            PurchaseDate = new DateTime(2023, 10, 29, 20, 43, 10, 78, DateTimeKind.Local).AddTicks(3189),
                             SerialNumber = "0987654321",
                             Status = "Nowy",
                             Street = "456 Oak St"
