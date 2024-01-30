@@ -5,7 +5,12 @@
 }
 
 <h1>Index</h1>
-
+<p>
+    <a asp-action="ComplaintList" asp-route-status="">Pokaż wszytkie</a> |
+    <a asp-action="ComplaintList" asp-route-status="Nowy">Show Przyjęte</a> |
+    <a asp-action="ComplaintList" asp-route-status="W Trakcie">Show W Trakcie</a> |
+    <a asp-action="ComplaintList" asp-route-status="Zakończone">Show Zakończone</a>
+</p>
 <p>
     <a asp-controller="Home" asp-action="Complaint">Create New</a> |
 </p>

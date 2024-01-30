@@ -15,9 +15,16 @@ namespace RefundWebApplication.Controllers
         }
 
         // GET: ComplaintModels
-        public async Task<IActionResult> ComplaintList()
+        public async Task<IActionResult> ComplaintList(string status)
         {
-            var complaints = await _context.Complaints.OrderByDescending(c => c.IssueDate).ToListAsync();
+            IQueryable<ComplaintModel> complaintsQuery = _context.Complaints;
+
+            if (!string.IsNullOrEmpty(status))
+            {
+                complaintsQuery = complaintsQuery.Where(c => c.Status == status);
+            }
+
+            var complaints = await complaintsQuery.OrderByDescending(c => c.IssueDate).ToListAsync();
             return View(complaints);
         }
 
