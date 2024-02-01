@@ -1,9 +1,52 @@
-﻿<div class="stats">
+﻿@{
+    var newCount = (int)ViewData["NewCount"];
+    var inProgressCount = (int)ViewData["InProgressCount"];
+    var completedCount = (int)ViewData["CompletedCount"];
+}
+
+<div class="stats">
     <h1>Statystyki reklamacji</h1>
     <div>
-        <p>Liczba reklamacji w stanie Nowy: @ViewData["NewCount"]</p>
-        <p>Liczba reklamacji w trakcie: @ViewData["InProgressCount"]</p>
-        <p>Liczba zakończonych reklamacji: @ViewData["CompletedCount"]</p>
-        <p>Suma wszystkich reklamacji: @ViewData["TotalComplaints"]</p>
+        <p>Liczba reklamacji w stanie Nowy: @newCount</p>
+        <p>Liczba reklamacji w trakcie: @inProgressCount</p>
+        <p>Liczba zakończonych reklamacji: @completedCount</p>
+        <p>Suma wszystkich reklamacji: @(newCount + inProgressCount + completedCount)</p>
+    </div>
+
+    <div id="chartContainer" style="width: 400px; height: 300px;">
+        <canvas id="myChart"></canvas>
     </div>
 </div>
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Nowy', 'W Trakcie', 'Zakończone'],
+                datasets: [{
+                    label: 'Liczba reklamacji',
+                    data: [@newCount, @inProgressCount, @completedCount],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true, // Ustawienie responsywności wykresu
+                maintainAspectRatio: false, // Wyłączenie zachowania proporcji
+                // Dodatkowe opcje
+            }
+        });
+    </script>
+}
