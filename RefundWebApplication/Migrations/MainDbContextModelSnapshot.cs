@@ -40,6 +40,10 @@ namespace RefundWebApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FixDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("HouseNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -85,17 +89,18 @@ namespace RefundWebApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("15f60a77-e1ce-4d16-9227-1d831ceb8402"),
+                            Id = new Guid("89e520be-5eca-40fc-b298-b314c83b919f"),
                             City = "Sample Town",
                             Email = "jane.smith@example.com",
                             FirstName = "Jane",
+                            FixDescription = "Product fix description goes here",
                             HouseNumber = "Suite 101",
-                            IssueDate = new DateTime(2024, 1, 29, 20, 43, 10, 78, DateTimeKind.Local).AddTicks(3248),
+                            IssueDate = new DateTime(2024, 2, 1, 20, 30, 35, 697, DateTimeKind.Local).AddTicks(7017),
                             IssueDescription = "Product issue description goes here",
                             LastName = "Smith",
                             Phone = "555-987-6543",
                             PostalCode = "54321",
-                            PurchaseDate = new DateTime(2023, 10, 29, 20, 43, 10, 78, DateTimeKind.Local).AddTicks(3189),
+                            PurchaseDate = new DateTime(2023, 11, 1, 20, 30, 35, 697, DateTimeKind.Local).AddTicks(6966),
                             SerialNumber = "0987654321",
                             Status = "Nowy",
                             Street = "456 Oak St"

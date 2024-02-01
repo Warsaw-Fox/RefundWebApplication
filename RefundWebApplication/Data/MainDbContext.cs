@@ -29,6 +29,7 @@ namespace RefundWebApplication.Data
                 PurchaseDate = DateTime.Now.AddMonths(-3), // Adjust purchase date as needed
                 IssueDescription = "Product issue description goes here",
                 IssueDate = DateTime.Now,
+                FixDescription = "Product fix description goes here",
                 Status = "Nowy",
             });
        

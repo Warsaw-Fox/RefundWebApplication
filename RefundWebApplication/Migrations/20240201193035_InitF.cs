@@ -28,6 +28,7 @@ namespace RefundWebApplication.Migrations
                     PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IssueDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IssueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FixDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -37,8 +38,8 @@ namespace RefundWebApplication.Migrations
 
             migrationBuilder.InsertData(
                 table: "Complaints",
-                columns: new[] { "Id", "City", "Email", "FirstName", "HouseNumber", "IssueDate", "IssueDescription", "LastName", "Phone", "PostalCode", "PurchaseDate", "SerialNumber", "Status", "Street" },
-                values: new object[] { new Guid("15f60a77-e1ce-4d16-9227-1d831ceb8402"), "Sample Town", "jane.smith@example.com", "Jane", "Suite 101", new DateTime(2024, 1, 29, 20, 43, 10, 78, DateTimeKind.Local).AddTicks(3248), "Product issue description goes here", "Smith", "555-987-6543", "54321", new DateTime(2023, 10, 29, 20, 43, 10, 78, DateTimeKind.Local).AddTicks(3189), "0987654321", "Nowy", "456 Oak St" });
+                columns: new[] { "Id", "City", "Email", "FirstName", "FixDescription", "HouseNumber", "IssueDate", "IssueDescription", "LastName", "Phone", "PostalCode", "PurchaseDate", "SerialNumber", "Status", "Street" },
+                values: new object[] { new Guid("89e520be-5eca-40fc-b298-b314c83b919f"), "Sample Town", "jane.smith@example.com", "Jane", "Product fix description goes here", "Suite 101", new DateTime(2024, 2, 1, 20, 30, 35, 697, DateTimeKind.Local).AddTicks(7017), "Product issue description goes here", "Smith", "555-987-6543", "54321", new DateTime(2023, 11, 1, 20, 30, 35, 697, DateTimeKind.Local).AddTicks(6966), "0987654321", "Nowy", "456 Oak St" });
         }
 
         /// <inheritdoc />

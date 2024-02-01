@@ -22,6 +22,7 @@ namespace RefundWebApplication.Models.Domain
         // public string FilePath { get; set; }
         // public string FileType { get; set; }
         public DateTime IssueDate { get; set; }
+        public string FixDescription { get; set; }
         public string Status { get; set; }
         // public string PDFName { get; set; }
         // public string PDFPath { get; set; }
