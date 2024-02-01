@@ -13,7 +13,7 @@ namespace RefundWebApplication.Controllers
             _context = context;
         }
 
-        public IActionResult stats()
+        public IActionResult Stats(string status)
         {
             // Pobierz liczbę reklamacji w różnych statusach
             var newCount = _context.Complaints.Count(c => c.Status == "Nowy");
@@ -28,6 +28,12 @@ namespace RefundWebApplication.Controllers
             ViewData["InProgressCount"] = inProgressCount;
             ViewData["CompletedCount"] = completedCount;
             ViewData["TotalComplaints"] = totalComplaints;
+
+            // Tutaj możesz wywołać metodę, która pobiera dane z bazy danych
+            var complaints = _context.Complaints.Where(c => c.Status == status).ToList();
+
+            // Przekazanie danych do widoku
+            ViewBag.Complaints = complaints;
 
             return View();
         }
