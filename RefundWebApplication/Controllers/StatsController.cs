@@ -1,32 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RefundWebApplication.Data;
+using System.Linq;
 
 namespace RefundWebApplication.Controllers
 {
     public class StatsController : Controller
     {
-        private static int inProgressCount = 0;
+        private readonly MainDbContext _context;
 
-        [HttpGet]
-        public IActionResult Index()
+        public StatsController(MainDbContext context)
         {
-            return View();
+            _context = context;
         }
 
-        [HttpPost]
-        public IActionResult GenerateStatistics(string status)
+        public IActionResult stats()
         {
-            if (status == "W Trakcie")
-            {
-                inProgressCount++;
-            }
+            // Pobierz liczbę reklamacji w różnych statusach
+            var newCount = _context.Complaints.Count(c => c.Status == "Nowy");
+            var inProgressCount = _context.Complaints.Count(c => c.Status == "W Trakcie");
+            var completedCount = _context.Complaints.Count(c => c.Status == "Zakończone");
 
-            // Przekierowanie na stronę z wynikami
-            return RedirectToAction("ShowStatistics");
-        }
+            // Oblicz liczbę wszystkich reklamacji
+            var totalComplaints = newCount + inProgressCount + completedCount;
 
-        public IActionResult ShowStatistics()
-        {
+            // Przekazujemy liczbę reklamacji do widoku
+            ViewData["NewCount"] = newCount;
             ViewData["InProgressCount"] = inProgressCount;
+            ViewData["CompletedCount"] = completedCount;
+            ViewData["TotalComplaints"] = totalComplaints;
+
             return View();
         }
     }
