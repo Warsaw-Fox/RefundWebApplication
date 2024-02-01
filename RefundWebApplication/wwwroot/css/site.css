@@ -134,3 +134,32 @@ body {
         .form button:hover {
             background-color: #45a049;
         }
+
+.stats {
+    margin: 100px 0 0 300px;
+}
+
+.przyciski {
+    margin-bottom: 20px;
+}
+
+.przycisk {
+    background-color: #f73600;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+    .przycisk:hover {
+        background-color: green;
+        color: white;
+    }
+
