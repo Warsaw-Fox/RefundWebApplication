@@ -26,6 +26,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 // Add services to the container.
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IImageRespository, CloudinaryImageRepository>();
 var app = builder.Build();
 
 
