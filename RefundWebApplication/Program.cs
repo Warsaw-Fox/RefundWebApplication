@@ -23,6 +23,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredUniqueChars = 1;
 });
 
+
 // Add services to the container.
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 var app = builder.Build();

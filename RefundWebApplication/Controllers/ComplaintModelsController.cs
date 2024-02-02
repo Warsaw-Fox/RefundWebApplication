@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using RefundWebApplication.Data;
 using RefundWebApplication.Models.Domain;
+using System.Net.Mail;
+using System.Net;
 
 namespace RefundWebApplication.Controllers
 {
@@ -78,6 +80,7 @@ namespace RefundWebApplication.Controllers
             {
                 try
                 {
+                    await SendEmailAsync(complaintModel);
                     _context.Update(complaintModel);
                     await _context.SaveChangesAsync();
                 }
@@ -138,6 +141,33 @@ namespace RefundWebApplication.Controllers
         public async Task<IActionResult> ShowResultSerialNumber(string SearchWord)
         {
             return View("ComplaintList" ,await _context.Complaints.Where(j => j.SerialNumber.Contains(SearchWord)).ToListAsync());
+        }
+        private async Task SendEmailAsync(ComplaintModel complaintModel)
+        {
+            try
+            {
+                // Konfiguruj klienta SMTP
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new NetworkCredential("majster@serwismklsolutions.com", "pspw hxhn rirw buum");
+                smtpClient.EnableSsl = true;
+
+                // Twórz wiadomość e-mail
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("majster@serwismklsolutions.com");
+                mailMessage.To.Add(complaintModel.Email); // Użyj adresu e-mail pobranego z formularza
+                mailMessage.Subject = "Zmiana statusu zgłoszenia: " + complaintModel.Id;
+                mailMessage.Body = "Reklamacji: " + complaintModel.Id + " zmieniła status. Nowy status rekalmacji to: " + complaintModel.Status;
+
+                // Wyślij e-mail
+                await smtpClient.SendMailAsync(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                // Obsłuż błąd wysyłania e-maila, na przykład zapisz go do dziennika lub zwróć błąd użytkownikowi
+                // Możesz również zaimplementować ponowną próbę wysłania e-maila w przypadku błędu
+                Console.WriteLine("Błąd wysyłania e-maila: " + ex.Message);
+            }
         }
     }
 }
