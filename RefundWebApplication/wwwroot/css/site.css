@@ -49,7 +49,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    border: 2px solid black;
+    border: 2px solid #f73600;
     border-radius: 15px;
     text-decoration: none;
     color: black;
@@ -60,21 +60,21 @@ body {
     width: 260px;
     height: 320px;
     background-color: #ffffff;
-    margin: 0 0 0 60px;
+    margin: 0 15px 0 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid;
+    border: 2px solid #f73600;
     border-radius: 15px;
 }
 
     .square:hover {
-        border: 2px solid #f73600;
+        border: 2px solid black;
     }
 
 .square1:hover {
-    border: 2px solid #f73600;
+    border: 2px solid black;
 }
 
 .txt {
@@ -84,7 +84,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 23px;
     padding-top: 60px;
 }
 
@@ -111,7 +111,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
 }
 
     .form input {
@@ -190,4 +189,11 @@ row-edit {
 
 a {
     text-decoration: none;
+}
+
+.thanks {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Opcjonalnie */
+    font-size: 20px;
 }
