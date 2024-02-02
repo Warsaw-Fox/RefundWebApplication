@@ -39,14 +39,16 @@
             Sprawdź gwarancję
         </div>
         <div class="form">
-
-            <form asp-controller="ComplaintModels" asp-action="ShowResultSerialNumber">
-                <div class="form">
-                    <label for="SearchWord" class="control-label"></label>
-                    <input name="SearchWord" required placeholder="Wpisz numer seryjny" class="form-control" />
+            <form asp-controller="Warranty" asp-action="CheckWarranty" method="post" style="text-align: center;">
+                @if (ViewData["ShowSerialNumberInput"] as bool? ?? true)
+                {
+                    <input type="text" name="serialNumber" required placeholder="Wpisz numer seryjny" />
                     <button type="submit">Sprawdź gwarancję</button>
-                </div>
-
+                }
+                else
+                {
+                    <p>@ViewData["WarrantyStatusMessage"]</p>
+                }
             </form>
         </div>
     </div>
