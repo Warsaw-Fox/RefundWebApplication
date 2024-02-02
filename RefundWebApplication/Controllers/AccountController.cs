@@ -79,7 +79,7 @@ namespace RefundWebApplication.Controllers
                     return Redirect(loginViewModel.ReturnUrl);
                 }
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("ComplaintList", "ComplaintModels");
             }
 
             // Show errors

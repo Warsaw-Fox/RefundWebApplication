@@ -27,53 +27,15 @@
                         </li>
                          @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Panel Obsługi
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="ComplaintModels"
-                                       asp-action="ComplaintList">
-                                        Nowe zgłoszenia
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="Kontroler"
-                                       asp-action="List">
-                                        Moje zgłoszenia
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="Kontroler"
-                                       asp-action="List">
-                                        Zgłoszenia otwarte
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="Kontroler"
-                                       asp-action="List">
-                                        Zgłoszenia zamknięte
-                                    </a>
-                                </li>
-                            </ul>
-                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ComplaintModels" asp-action="ComplaintList">Panel Obsługi</a>
+                            </li>                  
                         }
                     </ul>    
                     <div class="d-flex align-items-center">
                         @if (signInManager.IsSignedIn(User))
                         {
-                            <div class="me-3 text-light">
+                            <div class="me-3 text-dark">
                                 @User?.Identity?.Name
                             </div>
                             @if (User.IsInRole("Admin"))
