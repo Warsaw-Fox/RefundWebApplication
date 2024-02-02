@@ -134,5 +134,10 @@ namespace RefundWebApplication.Controllers
         {
             return _context.Complaints.Any(e => e.Id == id);
         }
+
+        public async Task<IActionResult> ShowResultSerialNumber(string SearchWord)
+        {
+            return View("ComplaintList" ,await _context.Complaints.Where(j => j.SerialNumber.Contains(SearchWord)).ToListAsync());
+        }
     }
 }
