@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     max-height: 100vh;
+    overflow-x: hidden;
     text-decoration: none;
 }
 
@@ -88,7 +89,7 @@ body {
 }
 
 .footer {
-    margin-top: 6%;
+    margin-top: 50px;
     background-color: #e7e6e6;
     height: 50px;
     color: white;
@@ -182,3 +183,11 @@ body {
     .pdf button:hover {
         background-color: #f73600;
     }
+
+row-edit {
+    margin-left: 30px;
+}
+
+a {
+    text-decoration: none;
+}
