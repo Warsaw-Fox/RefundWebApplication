@@ -28,16 +28,26 @@ namespace RefundWebApplication.Controllers
             return View(complaints);
         }
 
-        // GET: ComplaintModels/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(Guid? id, string searchWord)
         {
-            if (id == null)
+            if (id == null && string.IsNullOrEmpty(searchWord))
             {
                 return NotFound();
             }
 
-            var complaintModel = await _context.Complaints
-                .FirstOrDefaultAsync(m => m.Id == id);
+            ComplaintModel complaintModel;
+
+            if (id != null)
+            {
+                // Find complaint by id if provided
+                complaintModel = await _context.Complaints.FirstOrDefaultAsync(m => m.Id == id);
+            }
+            else
+            {
+                // Find complaint by search word if provided
+                complaintModel = await _context.Complaints.FirstOrDefaultAsync(m => m.SerialNumber == searchWord);
+            }
+
             if (complaintModel == null)
             {
                 return NotFound();

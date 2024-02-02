@@ -24,8 +24,13 @@
         Sprawdź status
       </div>
       <div class="form">
-        <input type="text" id="pole-tekstowe-status" name="pole-tekstowe-status" placeholder="Wpisz numer reklamacji">
-        <button onclick="sprawdzStatus()">Sprawdź</button>
+            <div class="form">
+                <form asp-controller="ComplaintModels" asp-action="Details" method="get" style="text-align: center;">
+                    <input type="text" id="searchWord" name="searchWord" placeholder="Wpisz numer reklamacji">
+                    <button type="submit">Sprawdź</button>
+                </form>
+            </div>
+
       </div>
     </div>
 
