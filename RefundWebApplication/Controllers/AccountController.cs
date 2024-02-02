@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace RefundWebApplication.Controllers
 {
     public class AccountController : Controller
@@ -34,20 +35,13 @@ namespace RefundWebApplication.Controllers
                     UserName = registerViewModel.Username,
                     Email = registerViewModel.Email
                 };
+                await userManager.CreateAsync(identityUser, registerViewModel.Password);
+                await userManager.AddToRoleAsync(identityUser, "Admin");
 
-                var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
-
-                if (identityResult.Succeeded)
-                {
-                    // assign this user the "User" role
-                    var roleIdentityResult = await userManager.AddToRoleAsync(identityUser, "User");
-
-                    if (roleIdentityResult.Succeeded)
-                    {
+                  
                         // Show success notification
                         return RedirectToAction("Register");
-                    }
-                }
+                
             }
 
             // Show error notification

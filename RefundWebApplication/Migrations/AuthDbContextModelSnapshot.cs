@@ -3,20 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RefundWebApplication.Data;
 
 #nullable disable
 
-namespace RefundWebApplication.Migrations.AuthDb
+namespace RefundWebApplication.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20240116190405_Initialization7")]
-    partial class Initialization7
+    partial class AuthDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,17 +166,17 @@ namespace RefundWebApplication.Migrations.AuthDb
                         {
                             Id = "472ba632-6133-44a1-b158-6c10bd7d850d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0760e081-824f-46e7-888b-b187bf2ee390",
-                            Email = "superadmin@dupex.com",
+                            ConcurrencyStamp = "0047d0fc-81c8-4b08-8138-36adc11b087f",
+                            Email = "superadmin@serwismklsolutions.pl",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "SUPERADMIN@DUPEX.COM",
-                            NormalizedUserName = "SUPERADMIN@DUPEX.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFdtZLnMrxnw2ThtkxdFz6h+bkeoqmTVciUgj9+PNbeoTrx4a10f8TN/M7Ypo44eYA==",
+                            NormalizedEmail = "SUPERADMIN@SERWISMKLSOLUTIONS.PL",
+                            NormalizedUserName = "SUPERADMIN@SERWISMKLSOLUTIONS.PL",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDbrps3AhoPxfqZ9yWP5Z7zIooDAPz0lYAU9716Np+wjhUvArtaINJIz9QMCmg/89w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "64533bf5-1328-43af-a7a4-7126686dadfa",
+                            SecurityStamp = "839e9c9c-df56-48ea-94c6-2f0a7abdbfe6",
                             TwoFactorEnabled = false,
-                            UserName = "superadmin@dupex.com"
+                            UserName = "superadmin@serwismklsolutions.pl"
                         });
                 });
 

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 namespace RefundWebApplication.Models.ViewModels
 {
     public class RegisterViewModel
@@ -11,7 +12,7 @@ namespace RefundWebApplication.Models.ViewModels
         public string Email { get; set; }
 
         [Required]
-        [MinLength(6, ErrorMessage = "Password has to be at least 6 characters")]
+        [PasswordValidation(true, true, true, true, 6, 1, ErrorMessage = "Password does not meet the required criteria.")]
         public string Password { get; set; }
     }
 }

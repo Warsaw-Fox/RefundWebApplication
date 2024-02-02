@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 namespace RefundWebApplication.Models.ViewModels
 {
     public class LoginViewModel

@@ -53,10 +53,10 @@ namespace RefundWebApplication.Data
             var superAdminId = "472ba632-6133-44a1-b158-6c10bd7d850d";
             var superAdminUser = new IdentityUser
             {
-                UserName = "superadmin@dupex.com",
-                Email = "superadmin@dupex.com",
-                NormalizedEmail = "superadmin@dupex.com".ToUpper(),
-                NormalizedUserName = "superadmin@dupex.com".ToUpper(),
+                UserName = "superadmin@serwismklsolutions.pl",
+                Email = "superadmin@serwismklsolutions.pl",
+                NormalizedEmail = "superadmin@serwismklsolutions.pl".ToUpper(),
+                NormalizedUserName = "superadmin@serwismklsolutions.pl".ToUpper(),
                 Id = superAdminId
             };
 

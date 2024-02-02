@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace RefundWebApplication.Migrations.AuthDb
+namespace RefundWebApplication.Migrations
 {
     /// <inheritdoc />
-    public partial class Intializone6 : Migration
+    public partial class InitA : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -163,15 +163,15 @@ namespace RefundWebApplication.Migrations.AuthDb
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "37cc67e1-41ca-461c-bf34-2b5e62dbae32", "37cc67e1-41ca-461c-bf34-2b5e62dbae32", "Majster", "Majster" },
+                    { "37cc67e1-41ca-461c-bf34-2b5e62dbae32", "37cc67e1-41ca-461c-bf34-2b5e62dbae32", "Admin", "Admin" },
                     { "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0", "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0", "SuperAdmin", "SuperAdmin" },
-                    { "a0cab2c3-6558-4a1c-be81-dfb39180da3d", "a0cab2c3-6558-4a1c-be81-dfb39180da3d", "Serwisant", "Serwisant" }
+                    { "a0cab2c3-6558-4a1c-be81-dfb39180da3d", "a0cab2c3-6558-4a1c-be81-dfb39180da3d", "User", "User" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "472ba632-6133-44a1-b158-6c10bd7d850d", 0, "e1acdddc-d75d-4889-86f8-72d93a7f1c5a", "superadmin@bloggie.com", false, false, null, "SUPERADMIN@BLOGGIE.COM", "SUPERADMIN@BLOGGIE.COM", "AQAAAAIAAYagAAAAELlDe3tD720ixO2Z7FByFZSIjr/bVd971WhDvmeJkgZOZ9AIkB7tM1VKFshHTFWdyg==", null, false, "fcf68e95-0099-4494-ad65-addf782769dc", false, "superadmin@bloggie.com" });
+                values: new object[] { "472ba632-6133-44a1-b158-6c10bd7d850d", 0, "0047d0fc-81c8-4b08-8138-36adc11b087f", "superadmin@serwismklsolutions.pl", false, false, null, "SUPERADMIN@SERWISMKLSOLUTIONS.PL", "SUPERADMIN@SERWISMKLSOLUTIONS.PL", "AQAAAAIAAYagAAAAEDbrps3AhoPxfqZ9yWP5Z7zIooDAPz0lYAU9716Np+wjhUvArtaINJIz9QMCmg/89w==", null, false, "839e9c9c-df56-48ea-94c6-2f0a7abdbfe6", false, "superadmin@serwismklsolutions.pl" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

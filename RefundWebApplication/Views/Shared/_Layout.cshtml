@@ -25,6 +25,8 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Panel Obsługi
@@ -65,76 +67,32 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminTags"
-                                       asp-action="Add">
-                                        Add Tag
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminTags"
-                                       asp-action="List">
-                                        Show All Tags
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminBlogPosts"
-                                       asp-action="Add">
-                                        Add Blog Post
-                                    </a>
-                                </li>
-
-
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminBlogPosts"
-                                       asp-action="List">
-                                        All BlogPosts
-                                    </a>
-                                </li>
-
-
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminUsers"
-                                       asp-action="List">
-                                        All Users
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    }
-
+                            </li>
+                        }
+                    </ul>    
                     <div class="d-flex align-items-center">
                         @if (signInManager.IsSignedIn(User))
                         {
                             <div class="me-3 text-light">
                                 @User?.Identity?.Name
                             </div>
-
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a class="btn me-3 bg-light text-dark"
+                                   asp-area=""
+                                   asp-controller="Account"
+                                   asp-action="Register">Register</a>
+                                <a class="btn me-3 bg-light text-dark"
+                                   asp-area=""
+                                   asp-controller="AdminUsers"
+                                   asp-action="List">
+                                   All Users </a>
+                            }
                             <a class="btn me-3 bg-light text-dark"
                                asp-area=""
                                asp-controller="Account"
                                asp-action="Logout">Logout</a>
+
                         }
                         else
                         {
@@ -142,12 +100,6 @@
                                asp-area=""
                                asp-controller="Account"
                                asp-action="Login">Login</a>
-
-                            <a class="btn me-3 bg-light text-dark"
-                               asp-area=""
-                               asp-controller="Account"
-                               asp-action="Register">Register</a>
-
                         }
                         
                     </div>

@@ -1,9 +1,11 @@
 using RefundWebApplication.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using RefundWebApplication.Repositories;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MainDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("RefundWebApplicationConnectionString")));
 builder.Services.AddDbContext<AuthDbContext>(options =>
@@ -22,9 +24,9 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
