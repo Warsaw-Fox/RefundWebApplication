@@ -1,46 +1,41 @@
 ﻿﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-  <div class="kafelki">
+<div class="kafelki">
     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Complaint">
-      <div class="square1">
-        <svg viewBox="0 0 384 512" width="30" title="clipboard">
-          <path d="M384 112v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h80c0-35.29 28.71-64 64-64s64 28.71 64 64h80c26.51 0 48 21.49 48 48zM192 40c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24m96 114v-20a6 6 0 0 0-6-6H102a6 6 0 0 0-6 6v20a6 6 0 0 0 6 6h180a6 6 0 0 0 6-6z" />
-        </svg>
-        <div class="txt">
-          Złóż reklamację
+        <div class="square1">
+            <svg viewBox="0 0 384 512" width="30" title="clipboard">
+                <path d="M384 112v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h80c0-35.29 28.71-64 64-64s64 28.71 64 64h80c26.51 0 48 21.49 48 48zM192 40c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24m96 114v-20a6 6 0 0 0-6-6H102a6 6 0 0 0-6 6v20a6 6 0 0 0 6 6h180a6 6 0 0 0 6-6z" />
+            </svg>
+            <div class="txt">
+                Złóż reklamację
+            </div>
         </div>
-      </div>
     </a>
-
     <div class="square">
-      <div class="ikonki">
-        <svg viewBox="0 0 512 512" width="30" title="search-plus">
-          <path d="M304 192v32c0 6.6-5.4 12-12 12h-56v56c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-56h-56c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h56v-56c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v56h56c6.6 0 12 5.4 12 12zm201 284.7L476.7 505c-9.4 9.4-24.6 9.4-33.9 0L343 405.3c-4.5-4.5-7-10.6-7-17V372c-35.3 27.6-79.7 44-128 44C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 48.3-16.4 92.7-44 128h16.3c6.4 0 12.5 2.5 17 7l99.7 99.7c9.3 9.4 9.3 24.6 0 34zM344 208c0-75.2-60.8-136-136-136S72 132.8 72 208s60.8 136 136 136 136-60.8 136-136z" />
-        </svg>
-      </div>
-      <div class="txt">
-        Sprawdź status
-      </div>
-      <div class="form">
+        <div class="ikonki">
+            <svg viewBox="0 0 512 512" width="30" title="search-plus">
+                <path d="M304 192v32c0 6.6-5.4 12-12 12h-56v56c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-56h-56c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h56v-56c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v56h56c6.6 0 12 5.4 12 12zm201 284.7L476.7 505c-9.4 9.4-24.6 9.4-33.9 0L343 405.3c-4.5-4.5-7-10.6-7-17V372c-35.3 27.6-79.7 44-128 44C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 48.3-16.4 92.7-44 128h16.3c6.4 0 12.5 2.5 17 7l99.7 99.7c9.3 9.4 9.3 24.6 0 34zM344 208c0-75.2-60.8-136-136-136S72 132.8 72 208s60.8 136 136 136 136-60.8 136-136z" />
+            </svg>
+        </div>
+        <div class="txt">
+            Sprawdź status
+        </div>
+        <div class="form">
             <div class="form">
                 <form asp-controller="ComplaintModels" asp-action="Details" method="get" style="text-align: center;">
-                    <input type="text" id="searchId" name="id" placeholder="Enter Complaint ID">
-                    <button type="submit">Check Details</button>
+                    <input type="text" id="searchWord" name="searchWord" placeholder="Wpisz numer reklamacji">
+                    <button type="submit">Sprawdź</button>
                 </form>
-
             </div>
-
-      </div>
+        </div>
     </div>
-
     <div class="square">
-      <div class="ikonki">
-        <svg viewBox="0 0 512 512" width="30" title="search-minus">
-          <path d="M304 192v32c0 6.6-5.4 12-12 12H124c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm201 284.7L476.7 505c-9.4 9.4-24.6 9.4-33.9 0L343 405.3c-4.5-4.5-7-10.6-7-17V372c-35.3 27.6-79.7 44-128 44C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 48.3-16.4 92.7-44 128h16.3c6.4 0 12.5 2.5 17 7l99.7 99.7c9.3 9.4 9.3 24.6 0 34zM344 208c0-75.2-60.8-136-136-136S72 132.8 72 208s60.8 136 136 136 136-60.8 136-136z" />
-        </svg>
-      </div>
+        <div class="ikonki">
+            <svg viewBox="0 0 512 512" width="30" title="search-minus">
+                <path d="M304 192v32c0 6.6-5.4 12-12 12H124c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm201 284.7L476.7 505c-9.4 9.4-24.6 9.4-33.9 0L343 405.3c-4.5-4.5-7-10.6-7-17V372c-35.3 27.6-79.7 44-128 44C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 48.3-16.4 92.7-44 128h16.3c6.4 0 12.5 2.5 17 7l99.7 99.7c9.3 9.4 9.3 24.6 0 34zM344 208c0-75.2-60.8-136-136-136S72 132.8 72 208s60.8 136 136 136 136-60.8 136-136z" />
+            </svg>
+        </div>
         <div class="txt" onclick="sprawdzGwarancje()">
             Sprawdź gwarancję
         </div>
@@ -58,16 +53,14 @@
             </form>
         </div>
     </div>
-  </div>
-
-  <div class="info">
+</div>
+<div class="info">
     <br> 1. Sprawdź Gwarancję
     <br> 2. Uzupełnij formularz zgłoszeniowy
     <br> 3. Oczekuj na dalsze instrukcje
     <br> 4. Sprawdź status reklamacji
-  </div>
+</div>
 
-  <div class="footer">
+<div class="footer">
     © 2024 - RefundWebApplication - Privacy
-  </div>
-
+</div>
