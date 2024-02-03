@@ -32,9 +32,11 @@ namespace RefundWebApplication.Controllers
 
         public async Task<IActionResult> Details(Guid? id, string searchWord)
         {
+            // If both id and searchWord are null or empty, display a message or handle the scenario as desired
             if (id == null && string.IsNullOrEmpty(searchWord))
             {
-                return NotFound();
+                // For example, you can return a view with a message indicating that no information was provided
+                return View("Error");
             }
 
             ComplaintModel complaintModel;
@@ -52,11 +54,13 @@ namespace RefundWebApplication.Controllers
 
             if (complaintModel == null)
             {
-                return NotFound();
+                // Redirect the user to an error page (ComplaintModels/Error) if no complaint is found
+                return View("Error");
             }
 
             return View(complaintModel);
         }
+
 
         // GET: ComplaintModels/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
