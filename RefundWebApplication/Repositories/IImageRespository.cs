@@ -1,7 +1,10 @@
-﻿namespace RefundWebApplication.Repositories
+﻿using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
+
+namespace RefundWebApplication.Repositories
 {
-    public class IImageRespository
+    public interface IImageRespository
     {
-        //Task<string> UploadAsync(IFormFile file);
+        Task<string> UploadAsync(IFormFile file);
     }
 }

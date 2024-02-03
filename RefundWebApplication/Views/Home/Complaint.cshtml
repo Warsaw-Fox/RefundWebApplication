@@ -5,7 +5,7 @@
 <div class="przestrzen">
 <h2>Complaint Form</h2>
 <div class="container py-5">
-    <form asp-controller="Complaint" asp-action="SubmitComplaint" method="post">
+    <form asp-controller="Complaint" asp-action="SubmitComplaint" method="post" enctype="multipart/form-data">
 
         <div class="mb-3">
             <label class="form-label">First Name</label>
@@ -61,13 +61,11 @@
             <label class="form-label">Issue Description</label>
             <textarea class="form-control" id="IssueDescription" asp-for="IssueDescription" required></textarea>
         </div>
-
-        <div class="mb-3">
-            <label class="form-label">Attachments</label>
-            <input type="file" id="featuredImageUpload" class="form-control" />
-
-            <img src="" id="featuredImageDisplay" style="display:none;width: 300px;" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label">Attachments</label>
+                <input type="file" id="featuredImageUpload" class="form-control" />
+                <img src="" id="featuredImageDisplay" style="display:none;width: 300px;" />
+            </div>
             <div class="mb-3" hidden>
                 <label class="form-label">Status</label>
                 <input type="hidden" class="form-control" id="Status" value="Nowy" asp-for="Status">
@@ -78,47 +76,55 @@
             </div>
 
         <div class="mb-3">
-            <button type="submit" class="btn btn-dark">
-                Submit Complaint
-            </button>
+                <button type="submit" class="btn btn-dark" id="submitButton">
+            Submit Complaint
+        </button>
         </div>
     </form>
     </div>
 </div>
 @section Scripts {
     <script>
-        var editor = new FroalaEditor('#content', {
-            imageUploadURL: '/api/images'
-        });
-
-
         const featuredUploadElement = document.getElementById('featuredImageUpload');
-        const featuredImageUrlElement = document.getElementById('featuredImageUrl');
         const featuredImageDisplayElement = document.getElementById('featuredImageDisplay');
 
-
         async function uploadFeaturedImage(e) {
-            console.log(e.target.files[0]);
-
             let data = new FormData();
             data.append('file', e.target.files[0]);
 
             await fetch('/api/images', {
                 method: 'POST',
-                headers: {
-                    'Aceept': '*/*',
-                },
                 body: data
-            }).then(response => response.json())
+            })
+                .then(response => response.json())
                 .then(result => {
-                    featuredImageUrlElement.value = result.link;
+                    // Aktualizuj pole IssueDescription z adresem URL obrazka
+                    const issueDescriptionElement = document.getElementById('IssueDescription');
+                    if (issueDescriptionElement) {
+                        const currentIssueDescription = issueDescriptionElement.value;
+                        const imageUrl = result.link;
+                        issueDescriptionElement.value = `${currentIssueDescription}\n\n![Image](${imageUrl})`;
+                    }
+
+                    // Aktualizuj podgląd obrazka
                     featuredImageDisplayElement.src = result.link;
                     featuredImageDisplayElement.style.display = 'block';
                 });
         }
 
-
-        featuredUploadElement.addEventListener('change', uploadFeaturedImage);
-
+        // Obsługa kliknięcia przycisku "Submit Complaint"
+        const submitButton = document.getElementById('submitButton');
+        if (submitButton) {
+            submitButton.addEventListener('click', () => {
+                // Wywołaj funkcję uploadFeaturedImage przy kliknięciu przycisku
+                const featuredUploadElement = document.getElementById('featuredImageUpload');
+                if (featuredUploadElement) {
+                    uploadFeaturedImage({ target: { files: [featuredUploadElement.files[0]] } });
+                }
+            });
+        }
     </script>
+}
+
+}
 }

@@ -2,86 +2,134 @@
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-<h2>Complaint Form</h2>
-<div class="bg-secondary bg-opacity-10 py-2">
-    <div class="container">
-        <h1>Add New Complaint</h1>
+<div class="przestrzen">
+    <h2>Complaint Form</h2>
+    <div class="container py-5">
+        <form asp-controller="Complaint" asp-action="SubmitComplaint" method="post" enctype="multipart/form-data">
+
+            <div class="mb-3">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" id="FirstName" asp-for="FirstName" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="LastName" asp-for="LastName" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Street</label>
+                <input type="text" class="form-control" id="Street" asp-for="Street" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">House Number</label>
+                <input type="text" class="form-control" id="HouseNumber" asp-for="HouseNumber" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Postal Code</label>
+                <input type="text" class="form-control" id="PostalCode" asp-for="PostalCode" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">City</label>
+                <input type="text" class="form-control" id="City" asp-for="City" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="Email" asp-for="Email" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Device name/model</label>
+                <input type="text" class="form-control" id="ProductModel" asp-for="ProductModel" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Serial Number</label>
+                <input type="text" class="form-control" id="SerialNumber" asp-for="SerialNumber" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Purchase Date</label>
+                <input type="date" class="form-control" id="PurchaseDate" asp-for="PurchaseDate" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Issue Description</label>
+                <textarea class="form-control" id="IssueDescription" asp-for="IssueDescription" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Attachments</label>
+                <input type="file" id="featuredImageUpload" class="form-control" />
+                <img src="" id="featuredImageDisplay" style="display:none;width: 300px;" />
+            </div>
+            <div class="mb-3" hidden>
+                <label class="form-label">Status</label>
+                <input type="hidden" class="form-control" id="Status" value="Nowy" asp-for="Status">
+            </div>
+            <div class="mb-3" hidden>
+                <label class="form-label">Fix Description</label>
+                <input type="hidden" class="form-control" id="FixDescription" value="-" asp-for="FixDescription">
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-dark" id="submitButton">
+                    Submit Complaint
+                </button>
+            </div>
+        </form>
     </div>
 </div>
+@section Scripts {
+    <script>
+        var editor = new FroalaEditor('#content', {
+            imageUploadURL: '/api/images'
+        });
 
-<div class="container py-5">
-    <form asp-controller="Complaint" asp-action="SubmitComplaint" method="post">
 
-        <div class="mb-3">
-            <label class="form-label">First Name</label>
-            <input type="text" class="form-control" id="FirstName" asp-for="FirstName" required />
-        </div>
+        const featuredUploadElement = document.getElementById('featuredImageUpload');
+        const featuredImageUrlElement = document.getElementById('featuredImageUrl');
+        const featuredImageDisplayElement = document.getElementById('featuredImageDisplay');
 
-        <div class="mb-3">
-            <label class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="LastName" asp-for="LastName" required />
-        </div>
 
-        <div class="mb-3">
-            <label class="form-label">Street</label>
-            <input type="text" class="form-control" id="Street" asp-for="Street" required />
-        </div>
+        async function uploadFeaturedImage(e) {
+            let data = new FormData();
+            data.append('file', e.target.files[0]);
 
-        <div class="mb-3">
-            <label class="form-label">House Number</label>
-            <input type="text" class="form-control" id="HouseNumber" asp-for="HouseNumber" required />
-        </div>
+            await fetch('/api/images', {
+                method: 'POST',
+                body: data
+            })
+                .then(response => response.json())
+                .then(result => {
+                    // Aktualizuj pole IssueDescription z adresem URL obrazka
+                    const issueDescriptionElement = document.getElementById('IssueDescription');
+                    if (issueDescriptionElement) {
+                        const currentIssueDescription = issueDescriptionElement.value;
+                        const imageUrl = result.link;
+                        issueDescriptionElement.value = `${currentIssueDescription}\n\n![Image](${imageUrl})`;
+                    }
 
-        <div class="mb-3">
-            <label class="form-label">Postal Code</label>
-            <input type="text" class="form-control" id="PostalCode" asp-for="PostalCode" required />
-        </div>
+                    // Aktualizuj podgląd obrazka
+                    featuredImageDisplayElement.src = result.link;
+                    featuredImageDisplayElement.style.display = 'block';
+                });
+        }
 
-        <div class="mb-3">
-            <label class="form-label">City</label>
-            <input type="text" class="form-control" id="City" asp-for="City" required />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Phone</label>
-            <input type="text" class="form-control" id="ProductModel" asp-for="ProductModel" required />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" id="Email" asp-for="Email" required />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Serial Number</label>
-            <input type="text" class="form-control" id="SerialNumber" asp-for="SerialNumber" required />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Purchase Date</label>
-            <input type="date" class="form-control" id="PurchaseDate" asp-for="PurchaseDate" required />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Issue Description</label>
-            <textarea class="form-control" id="IssueDescription" asp-for="IssueDescription" required></textarea>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Attachments</label>
-            <input type="file" class="form-control" id="Attachments" />
-        </div>
-        
-        <div class="mb-3">
-            <label class="form-label">Status</label>
-            <input type="text" class="form-control" id="Status" asp-for="Status" required />
-        </div>
-
-        <div class="mb-3">
-            <button type="submit" class="btn btn-dark">
-                Submit Complaint
-            </button>
-        </div>
-
-    </form>
-</div>
+        // Obsługa kliknięcia przycisku "Submit Complaint"
+        const submitButton = document.getElementById('submitButton');
+        if (submitButton) {
+            submitButton.addEventListener('click', () => {
+                // Wywołaj funkcję uploadFeaturedImage przy kliknięciu przycisku
+                const featuredUploadElement = document.getElementById('featuredImageUpload');
+                if (featuredUploadElement) {
+                    uploadFeaturedImage({ target: { files: [featuredUploadElement.files[0]] } });
+                }
+            });
+        }
+    </script>
+}
+}
