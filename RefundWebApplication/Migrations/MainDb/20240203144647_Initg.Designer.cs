@@ -12,8 +12,8 @@ using RefundWebApplication.Data;
 namespace RefundWebApplication.Migrations.MainDb
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20240202201727_InitF")]
-    partial class InitF
+    [Migration("20240203144647_Initg")]
+    partial class Initg
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,11 +62,11 @@ namespace RefundWebApplication.Migrations.MainDb
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
+                    b.Property<string>("PostalCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PostalCode")
+                    b.Property<string>("ProductModel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -92,18 +92,18 @@ namespace RefundWebApplication.Migrations.MainDb
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b8a6dd2e-454c-4908-8b4c-26110eee1047"),
+                            Id = new Guid("50a40ca4-d1d6-42e4-ad48-18e1f8b8e015"),
                             City = "Sample Town",
                             Email = "jane.smith@example.com",
                             FirstName = "Jane",
                             FixDescription = "Product fix description goes here",
                             HouseNumber = "Suite 101",
-                            IssueDate = new DateTime(2024, 2, 2, 21, 17, 27, 314, DateTimeKind.Local).AddTicks(7488),
+                            IssueDate = new DateTime(2024, 2, 3, 15, 46, 47, 317, DateTimeKind.Local).AddTicks(4340),
                             IssueDescription = "Product issue description goes here",
                             LastName = "Smith",
-                            Phone = "555-987-6543",
                             PostalCode = "54321",
-                            PurchaseDate = new DateTime(2023, 11, 2, 21, 17, 27, 314, DateTimeKind.Local).AddTicks(7437),
+                            ProductModel = "LENOVO IdeaPad Slim 3 15IAH8",
+                            PurchaseDate = new DateTime(2023, 11, 3, 15, 46, 47, 317, DateTimeKind.Local).AddTicks(4295),
                             SerialNumber = "0987654321",
                             Status = "Nowy",
                             Street = "456 Oak St"

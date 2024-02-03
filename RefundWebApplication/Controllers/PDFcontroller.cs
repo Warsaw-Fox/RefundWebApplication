@@ -28,7 +28,7 @@ public class PdfController : Controller
         string houseNumber = model.HouseNumber;
         string postalCode = model.PostalCode;
         string city = model.City;
-        string phone = model.Phone;
+        string phone = model.ProductModel;
         string email = model.Email;
         string serialNumber = model.SerialNumber;
         string issueDescription = model.IssueDescription;
