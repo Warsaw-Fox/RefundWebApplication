@@ -30,32 +30,20 @@ namespace RefundWebApplication.Controllers
             return View(complaints);
         }
 
-        public async Task<IActionResult> Details(Guid? id, string searchWord)
+        public async Task<IActionResult> Details(Guid? id)
         {
-            // If both id and searchWord are null or empty, display a message or handle the scenario as desired
-            if (id == null && string.IsNullOrEmpty(searchWord))
+            // If id is null or empty, display a message or handle the scenario as desired
+            if (id == null)
             {
                 // For example, you can return a view with a message indicating that no information was provided
                 return View("Error");
             }
 
-            ComplaintModel complaintModel;
-
-            if (id != null)
-            {
-                // Find complaint by id if provided
-                complaintModel = await _context.Complaints.FirstOrDefaultAsync(m => m.Id == id);
-            }
-            else
-            {
-                // Find complaint by search word if provided
-                complaintModel = await _context.Complaints.FirstOrDefaultAsync(m => m.SerialNumber == searchWord);
-            }
+            ComplaintModel complaintModel = await _context.Complaints.FirstOrDefaultAsync(m => m.Id == id);
 
             if (complaintModel == null)
             {
-                // Redirect the user to an error page (ComplaintModels/Error) if no complaint is found
-                return View("Error");
+                return NotFound(); // Optionally, you can return a not found view if the complaint is not found
             }
 
             return View(complaintModel);
