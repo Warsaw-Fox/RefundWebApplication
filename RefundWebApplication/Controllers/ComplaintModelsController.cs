@@ -71,7 +71,7 @@ namespace RefundWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,FirstName,LastName,Street,HouseNumber,PostalCode,City,Phone,Email,SerialNumber,PurchaseDate,IssueDescription,IssueDate,FixDescription,Status")] ComplaintModel complaintModel)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,FirstName,LastName,Street,HouseNumber,PostalCode,City,Phone,ProductModel,Email,SerialNumber,PurchaseDate,IssueDescription,IssueDate,FixDescription,Status")] ComplaintModel complaintModel)
         {
             if (id != complaintModel.Id)
             {
