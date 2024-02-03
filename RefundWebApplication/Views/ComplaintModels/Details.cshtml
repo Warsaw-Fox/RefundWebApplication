@@ -112,8 +112,10 @@
 
 
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+     @if (User.IsInRole("Admin"))                {
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
     <a asp-action="ComplaintList">Back to List</a>
+     }
 </div>
 
 <form method="post" asp-controller="Pdf" asp-action="GeneratePdf">
