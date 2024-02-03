@@ -1,0 +1,101 @@
+﻿@model RefundWebApplication.Models.Domain.ComplaintModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ComplaintModel</h4>
+<hr />
+<div class="row">
+    <div class="row-edit">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Street" class="control-label"></label>
+                <input asp-for="Street" class="form-control" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseNumber" class="control-label"></label>
+                <input asp-for="HouseNumber" class="form-control" />
+                <span asp-validation-for="HouseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostalCode" class="control-label"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 <label asp-for="Email" class="control-label"></label>
+                 <input asp-for="Email" class="form-control" />
+                 <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SerialNumber" class="control-label"></label>
+                <input asp-for="SerialNumber" class="form-control" />
+                <span asp-validation-for="SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PurchaseDate" class="control-label"></label>
+                <input asp-for="PurchaseDate" class="form-control" />
+                <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IssueDescription" class="control-label"></label>
+                <input asp-for="IssueDescription" class="form-control" />
+                <span asp-validation-for="IssueDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FixDescription" class="control-label"></label>
+                <input asp-for="FixDescription" class="form-control" />
+                <span asp-validation-for="FixDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IssueDate" class="control-label"></label>
+                <input asp-for="IssueDate" class="form-control" />
+                <span asp-validation-for="IssueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Status:</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Przyjęte">Przyjęte</option>
+                    <option value="W Trakcie">W Trakcie</option>
+                    <option value="Zakończone">Zakończone</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ComplaintList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
