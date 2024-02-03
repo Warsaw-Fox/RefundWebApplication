@@ -14,16 +14,17 @@ namespace RefundWebApplication.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
-        private readonly IConfiguration configuration;
+        // private readonly IConfiguration configuration;
 
         public AccountController(UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager, IConfiguration configuration)
+            SignInManager<IdentityUser> signInManager/*, IConfiguration configuration*/)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
-            this.configuration = configuration;
+            //this.configuration = configuration;
         }
-        [HttpPost("GenerateToken")]
+        /*
+         [HttpPost("GenerateToken")]
         public async Task<IActionResult> GenerateToken(LoginViewModel loginViewModel)
         {
             if (!ModelState.IsValid)
@@ -61,6 +62,7 @@ namespace RefundWebApplication.Controllers
                 token = new JwtSecurityTokenHandler().WriteToken(token)
             });
         }
+         */
 
         [HttpGet]
         public IActionResult Register()
@@ -82,10 +84,10 @@ namespace RefundWebApplication.Controllers
                 await userManager.CreateAsync(identityUser, registerViewModel.Password);
                 await userManager.AddToRoleAsync(identityUser, "Admin");
 
-                  
-                        // Show success notification
-                        return RedirectToAction("Register");
-                
+
+                // Show success notification
+                return RedirectToAction("Register");
+
             }
 
             // Show error notification
@@ -143,7 +145,5 @@ namespace RefundWebApplication.Controllers
         {
             return View();
         }
-
-
     }
 }
