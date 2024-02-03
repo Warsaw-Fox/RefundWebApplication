@@ -34,6 +34,7 @@ public class PdfController : Controller
         string issueDescription = model.IssueDescription;
         string fixDescription = model.FixDescription;
 
+
         string text = "Dokument reklamacyjny";
 
         // Przykładowe użycie danych z formularza w dokumencie PDF
