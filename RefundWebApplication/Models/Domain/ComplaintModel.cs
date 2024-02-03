@@ -13,7 +13,7 @@ namespace RefundWebApplication.Models.Domain
         public string HouseNumber { get; set; }
         public string PostalCode { get; set; }
         public string City { get; set; }
-        public string Phone { get; set; }
+        public string ProductModel { get; set; }
         public string Email { get; set; }
         public string SerialNumber { get; set; }
         public DateTime PurchaseDate { get; set; }
