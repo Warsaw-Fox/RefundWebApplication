@@ -77,7 +77,9 @@ body {
     border: 2px solid black;
 }
 
-.txt {
+.form-control {
+    margin: 5px 0 20px 0;
+    padding: 5px;
 }
 
 .info {
@@ -160,6 +162,26 @@ body {
 
     .przycisk:hover {
         background-color: #f73600;
+        color: white;
+    }
+
+.przycisk1 {
+    background-color: #f73600;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+    .przycisk1:hover {
+        background-color: #333;
         color: white;
     }
 

@@ -84,6 +84,11 @@
     <a asp-action="ComplaintList">Back to List</a>
 </div>
 
+<form method="post" asp-controller="Pdf" asp-action="GeneratePdf">
+    <button type="submit">Generate PDF</button>
+</form>
+
+
 @* Wyświetlnie aktualnego statusu reklamacji na zwyklym ifie*@
 @if (!string.IsNullOrEmpty(Model.Status))
 {
