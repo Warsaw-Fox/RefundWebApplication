@@ -6,9 +6,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using PdfSharp.Charting;
 using System.Text;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); // Kestrel conf here
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Limits.MinRequestBodyDataRate = new MinDataRate(
+        bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(15));
+    serverOptions.Limits.MinResponseDataRate = new MinDataRate(
+        bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(15));
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MainDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("RefundWebApplicationConnectionString")));
@@ -26,7 +34,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 6;
     options.Password.RequiredUniqueChars = 1;
 });
-/*
+/* //powoduje brak reakcji aplikacji przy logowaniu, trzeba bêdzie to zrobiæ w innym miejscu
  builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

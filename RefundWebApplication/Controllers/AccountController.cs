@@ -23,8 +23,8 @@ namespace RefundWebApplication.Controllers
             this.signInManager = signInManager;
             //this.configuration = configuration;
         }
-        /*
-         [HttpPost("GenerateToken")]
+        /*   ///powodowao błąd zostawiam to na razie i zdefiniuje inne metody
+         [HttpPost("GenerateToken")]   //token JWT na podstawie nazwy użytkownika i hasła.
         public async Task<IActionResult> GenerateToken(LoginViewModel loginViewModel)
         {
             if (!ModelState.IsValid)

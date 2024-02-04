@@ -2,8 +2,9 @@
 @inject SignInManager<IdentityUser> signInManager
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
 <!-- <script runat="server">
-void Page_Load(object sender, EventArgs e)
-{
+void Page_Load(object sender, EventArgs e)-->
+<!--  blokuje próby odczytu cookie z tą flagą przez API inne niż HTTP -->
+<!--{
 // Stworz nowe ciasteczko
 HttpCookie myHttpOnlyCookie = new HttpCookie("LastVisit", DateTime.Now.ToString());
 
